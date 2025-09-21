@@ -5,7 +5,7 @@ The built-in MCP server of OpenAI Codex CLI natively uses the STDIO JSON-RPC tra
 Codex Streamable HTTP Server, on the other hand, exposes an HTTP server using the Streamable HTTP transport.
 In the Streamable HTTP transport, the server operates as an independent process that can handle multiple client connections. This transport uses HTTP POST and GET requests.
 
-The *goal* of this project is to make it possible to use *Codex CLI as an MCP agent* within workflows through clients compatible with the MCP Streamable HTTP transport such as Claude Desktop or other MCP-enabled tools.
+The **goal** of this project is to make it possible to use **Codex CLI as an MCP agent** within workflows through clients compatible with the MCP Streamable HTTP transport such as Claude Desktop or other MCP-enabled tools.
 
 This project is based on [Supergateway](https://github.com/supercorp-ai/supergateway).
 
@@ -13,13 +13,32 @@ This project is based on [Supergateway](https://github.com/supercorp-ai/supergat
 
 ## Usage
 
-- Build image: `make`
-- Codex login: `make login`
-- Run codex as Streamable HTTP MCP server: `make run`
-- Codex logout: `make logout`
-- Remove docker container, image and volume: `make clean`
+Build docker image
+```bash
+make
+```
 
-The Streamable HTTP Server uses tcp port 7000: http://localhost:7000/mcp
+Codex login
+```bash
+make login
+```
+
+Run codex as Streamable HTTP MCP agent
+```bash
+make run
+```
+
+Codex logout
+```bash
+make logout
+```
+
+Remove docker container, image and volume
+```bash
+make clean
+```
+
+The Streamable HTTP Server uses tcp port 7000 by default: http://localhost:7000/mcp
 
 You can check by running `npx @modelcontextprotocol/inspector`
 
@@ -27,11 +46,11 @@ You can check by running `npx @modelcontextprotocol/inspector`
 
 ## Security
 
-When implementing Streamable HTTP transport:
+When using a Streamable HTTP transport:
 
 - Servers MUST validate the `Origin` header on all incoming connections to prevent DNS rebinding attacks
 - When running locally, servers SHOULD bind only to localhost (`127.0.0.1`) rather than all network interfaces (`0.0.0.0`)
-- Servers SHOULD implement proper authentication for all connections
+- Servers *SHOULD* implement proper authentication for all connections
 
 Check [Model Context Protocol Specification](https://modelcontextprotocol.io/specification/versioning) to learn more.
 
