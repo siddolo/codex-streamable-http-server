@@ -1,9 +1,11 @@
 # Codex Streamable HTTP Server
 
-The built-in MCP server of Codex CLI natively uses the STIO JSON-RPC transport. In this mode, Codex reads JSON-RPC messages from its standard input (`stdin`) and sends messages to its standard output (`stdout`).
+The built-in MCP server of OpenAI Codex CLI natively uses the STIO JSON-RPC transport. In this mode, Codex reads JSON-RPC messages from its standard input (`stdin`) and sends messages to its standard output (`stdout`).
 
 Codex Streamable HTTP Server, on the other hand, exposes an HTTP server using the Streamable HTTP transport.
 In the Streamable HTTP transport, the server operates as an independent process that can handle multiple client connections. This transport uses HTTP POST and GET requests.
+
+> OpenAI and Codex are trademarks of their respective owners.
 
 ## Usage
 
