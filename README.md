@@ -5,7 +5,7 @@ The built-in MCP server of OpenAI Codex CLI natively uses the STDIO JSON-RPC tra
 Codex Streamable HTTP Server, on the other hand, exposes an HTTP server using the Streamable HTTP transport.
 In the Streamable HTTP transport, the server operates as an independent process that can handle multiple client connections. This transport uses HTTP POST and GET requests.
 
-The goal of this project is to make it possible to use Codex CLI as an MCP server within workflows through clients compatible with the MCP Streamable HTTP transport such as Claude Desktop or other MCP-enabled tools.
+The goal of this project is to make it possible to use Codex CLI as an MCP agent within workflows through clients compatible with the MCP Streamable HTTP transport such as Claude Desktop or other MCP-enabled tools.
 
 This project is based on [Supergateway](https://github.com/supercorp-ai/supergateway).
 
