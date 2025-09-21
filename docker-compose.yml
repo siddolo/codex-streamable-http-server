@@ -1,0 +1,13 @@
+services:
+  codex-streamable-http-server:
+    image: codex-streamable-http-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - codex-config:/home/node/.codex
+    ports:
+      - "7000:7000" # MCP Streamable HTTP port
+
+volumes:
+  codex-config:

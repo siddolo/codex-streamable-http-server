@@ -1,0 +1,18 @@
+services:
+  codex-streamable-http-server:
+    image: codex-streamable-http-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - codex-config:/home/node/.codex
+    user: "0:0"
+    cap_add:
+      - NET_ADMIN
+    sysctls:
+      net.ipv4.conf.eth0.route_localnet: "1"
+    ports:
+      - "1455:1455" # Codex OAuth callback HTTP port
+    entrypoint: ["codex-login-hack.sh"]
+volumes:
+  codex-config:
