@@ -17,7 +17,7 @@ In the Streamable HTTP transport, the server operates as an independent process 
 
 The Streamable HTTP Server uses tcp port 7000: http://localhost:7000/mcp
 
-You can check by `npx @modelcontextprotocol/inspector`
+You can check by running `npx @modelcontextprotocol/inspector`
 
 ![mcp inspector](screenshot.png)
 
@@ -46,6 +46,7 @@ There are several ways to perform the login:
 ### make login
 
 The Codex CLI login mechanism binds an HTTP server to TCP port 1455 to receive the OAuth 2.0 callback.
-Since the binding is hardcoded to `127.0.0.1` instead of `0.0.0.0` and cannot be configured, it’s not possible to expose the service to the host directly from Docker. The workaround of `make login` creates a DNAT rule to bypass this limitation.
 
-This hack requires a privileged container (`root`) with `NET_ADMIN` and `net.ipv4.conf.eth0.route_localnet: 1`.
+Since the binding is hardcoded to `127.0.0.1` instead of `0.0.0.0` and cannot be configured, it’s not possible to expose the service to the host directly from Docker.
+
+The workaround in `docker-compose-login.yml` (`make login`) creates a DNAT rule to bypass this limitation. This hack requires a privileged container (`root`) with `NET_ADMIN` and `net.ipv4.conf.eth0.route_localnet: 1`.
